@@ -1,0 +1,20 @@
+<resources>
+    <string name="app_name">SCBChallenge</string>
+    <string name="all_mobile_tab">All</string>
+    <string name="favourite_tab">Favourite</string>
+    <string name="sort">Sort</string>
+    <string name="image">image</string>
+    <string name="price">Price:</string>
+    <string name="price_value">$100</string>
+    <string name="rating">Rating:</string>
+    <string name="rating_value">4.9</string>
+    <string name="mobile_e4_plus">Mobile E4 Plus</string>
+    <string name="description">First Place in our list gos to excellent Mobile E4 Plus. Its a cheap phone that</string>
+    <string name="low_to_high">Price low to high</string>
+    <string name="high_to_low">Price high to low</string>
+    <string name="rating_low">Rating</string>
+    <string name="cancel">Cancel</string>
+    <string name="no_connection">No Connection!</string>
+    <string name="wait_while_try">Please wait while we try to</string>
+    <string name="reconnect">reconnect</string>
+</resources>
