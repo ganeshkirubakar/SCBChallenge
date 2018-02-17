@@ -53,6 +53,7 @@ public class CustomDialog extends AppCompatDialog implements View.OnClickListene
             this.dialogInterface.sortBy(AppConstants.RATING);
             dismiss();
         } else if (v.getId() == R.id.cancel) {
+            this.dialogInterface.sortBy(AppConstants.CANCEL);
             dismiss();
         }
     }

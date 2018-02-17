@@ -8,7 +8,7 @@ import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
+import android.widget.ImageView;
 
 import com.scbchallenge.R;
 import com.scbchallenge.utils.AHMRealmUtil;
@@ -45,7 +45,7 @@ public class MobileListFragment extends Fragment implements ViewPager.OnPageChan
         View mMobileList = inflater.inflate(R.layout.mobile_base, container, false);
         mViewPager = (CustomViewPager) mMobileList.findViewById(R.id.viewpager);
         tabsStrip = (PagerSlidingTabStrip) mMobileList.findViewById(R.id.tabs);
-        TextView mSort = (TextView) mMobileList.findViewById(R.id.sort);
+        ImageView mSort = (ImageView) mMobileList.findViewById(R.id.sort);
         mSort.setOnClickListener(this);
         mViewPager.addOnPageChangeListener(this);
         return mMobileList;
@@ -103,6 +103,7 @@ public class MobileListFragment extends Fragment implements ViewPager.OnPageChan
             CustomDialog customDialog = new CustomDialog(getActivity());
             customDialog.setDialogInterface(this);
             customDialog.show();
+            customDialog.setCancelable(false);
         }
     }
 

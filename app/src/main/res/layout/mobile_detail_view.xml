@@ -8,17 +8,8 @@
         android:id="@+id/header"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/header_background">
-
-        <TextView
-            android:id="@+id/mobile_name"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerInParent="true"
-            android:text="@string/mobile_e4_plus"
-            android:textColor="@color/black"
-            android:textSize="18sp"
-            android:textStyle="bold" />
+        android:background="@color/colorPrimaryDark"
+        android:padding="10dp">
 
         <ImageView
             android:id="@+id/back"
@@ -26,18 +17,27 @@
             android:layout_height="50dp"
             android:layout_alignParentStart="true"
             android:layout_margin="5dp"
-            android:contentDescription="@string/image"
-            android:paddingBottom="5dp"
-            android:paddingEnd="20dp"
-            android:paddingStart="20dp"
-            android:paddingTop="5dp"
-            android:src="@drawable/back_arrow" />
+            android:background="@drawable/back_line"
+            android:contentDescription="@string/image" />
+
+        <TextView
+            android:id="@+id/mobile_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_toEndOf="@id/back"
+            android:padding="10dp"
+            android:text="@string/mobile_e4_plus"
+            android:textColor="@color/white"
+            android:textSize="22sp"
+            android:textStyle="bold" />
     </RelativeLayout>
 
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_alignParentBottom="true"
         android:layout_below="@id/header"
         android:orientation="vertical"
         android:weightSum="2">
@@ -52,7 +52,7 @@
                 android:id="@+id/image_dynamic"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"></LinearLayout>
+                android:orientation="horizontal" />
         </HorizontalScrollView>
 
         <TextView
@@ -62,8 +62,8 @@
             android:layout_weight="1.25"
             android:padding="10dp"
             android:text="@string/description"
-            android:textColor="@color/black"
-            android:textSize="16sp" />
+            android:textColor="@color/grey"
+            android:textSize="18sp" />
     </LinearLayout>
 
     <ProgressBar
@@ -81,53 +81,25 @@
         android:background="@color/overlay_color"
         android:padding="5dp">
 
-        <LinearLayout
+        <TextView
+            android:id="@+id/price_label"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentEnd="true"
-            android:orientation="horizontal"
-            android:padding="5dp">
+            android:padding="5dp"
+            android:text="@string/price"
+            android:textColor="@color/black"
+            android:textSize="14sp" />
 
-            <TextView
-                android:id="@+id/price_label"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/price"
-                android:textColor="@color/black"
-                android:textSize="14sp" />
-
-            <TextView
-                android:id="@+id/price_value"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/price_value"
-                android:textColor="@color/black"
-                android:textSize="14sp" />
-        </LinearLayout>
-
-        <LinearLayout
+        <TextView
+            android:id="@+id/rating_label"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentStart="true"
-            android:orientation="horizontal"
-            android:padding="5dp">
-
-            <TextView
-                android:id="@+id/rating_label"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/rating"
-                android:textColor="@color/black"
-                android:textSize="14sp" />
-
-            <TextView
-                android:id="@+id/rating_value"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/rating_value"
-                android:textColor="@color/black"
-                android:textSize="14sp" />
-        </LinearLayout>
+            android:padding="5dp"
+            android:text="@string/rating"
+            android:textColor="@color/black"
+            android:textSize="14sp" />
 
     </RelativeLayout>
 </RelativeLayout>

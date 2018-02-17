@@ -6,7 +6,7 @@
     <color name="white">#FFF</color>
     <color name="black">#000</color>
     <color name="grey">#aaa8a8</color>
-    <color name="header_background">#F7F7F6</color>
+    <color name="header_background">#F8F6F7</color>
     <color name="sort_color">#1e6aa4</color>
     <color name="overlay_color">#80FFFFFF</color>
     <color name="reward_txt_color">#003150</color>

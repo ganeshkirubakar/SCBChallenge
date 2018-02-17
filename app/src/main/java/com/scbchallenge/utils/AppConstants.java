@@ -12,6 +12,7 @@ public class AppConstants {
     public static final int LOW_TO_HIGH = 0;
     public static final int HIGH_TO_LOW = 1;
     public static final int RATING = 2;
+    public static final int CANCEL = 3;
     public static final String RATING_SORT = "rating";
     public static final String PRICE_SORT = "price";
 }

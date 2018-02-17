@@ -7,7 +7,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
-import android.widget.RelativeLayout;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.scbchallenge.R;
@@ -40,14 +40,15 @@ public class MobileListAdapter extends RecyclerView.Adapter<MobileListAdapter.Mo
     public void onBindViewHolder(MobileListViewHolder holder, final int position) {
         holder.mobileName.setText(mobileLists.get(position).getName());
         holder.mobileDescription.setText(mobileLists.get(position).getDescription());
-        holder.priceValue.setText(mobileLists.get(position).getPrice());
-        holder.ratingValue.setText(mobileLists.get(position).getRating());
+        holder.priceValue.setText(String.format(mContext.getString(R.string.price), mobileLists.get(position).getPrice()));
+        holder.ratingValue.setText(String.format(mContext.getString(R.string.rating), mobileLists.get(position).getRating()));
         if (mobileLists.get(position).isFavourite()) {
             holder.favourites.setBackground(mContext.getDrawable(R.drawable.btn_rating_star_on_normal_holo_dark));
         } else {
-            holder.favourites.setBackground(mContext.getDrawable(R.drawable.btn_rating_star_off_disabled_focused_holo_light));
+            holder.favourites.setBackground(mContext.getDrawable(R.drawable.btn_rating_star_off_disabled_focused_holo_dark));
         }
         if (!fromFavourite) {
+            holder.favourites.setVisibility(View.VISIBLE);
             holder.favourites.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
@@ -61,8 +62,10 @@ public class MobileListAdapter extends RecyclerView.Adapter<MobileListAdapter.Mo
                     notifyDataSetChanged();
                 }
             });
+        } else {
+            holder.favourites.setVisibility(View.GONE);
         }
-        Picasso.with(mContext).load(mobileLists.get(position).getThumbImageURL()).centerCrop().resize(120, 60).into(holder.mobileImage);
+        Picasso.with(mContext).load(mobileLists.get(position).getThumbImageURL()).placeholder(mContext.getDrawable(R.drawable.launcher)).into(holder.mobileImage);
         holder.itemLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -89,17 +92,17 @@ public class MobileListAdapter extends RecyclerView.Adapter<MobileListAdapter.Mo
         private TextView ratingValue;
         private ImageView mobileImage;
         private ImageView favourites;
-        private RelativeLayout itemLayout;
+        private LinearLayout itemLayout;
 
         MobileListViewHolder(View itemView) {
             super(itemView);
             mobileName = (TextView) itemView.findViewById(R.id.mobile_name);
             mobileDescription = (TextView) itemView.findViewById(R.id.mobile_description);
-            priceValue = (TextView) itemView.findViewById(R.id.price_value);
-            ratingValue = (TextView) itemView.findViewById(R.id.rating_value);
+            priceValue = (TextView) itemView.findViewById(R.id.price_label);
+            ratingValue = (TextView) itemView.findViewById(R.id.rating_label);
             mobileImage = (ImageView) itemView.findViewById(R.id.mobile_image);
             favourites = (ImageView) itemView.findViewById(R.id.favourite);
-            itemLayout = (RelativeLayout) itemView.findViewById(R.id.list_item);
+            itemLayout = (LinearLayout) itemView.findViewById(R.id.list_item);
         }
     }
 }

@@ -93,5 +93,6 @@
         android:text="@string/cancel"
         android:textAlignment="center"
         android:textColor="@color/sort_color"
-        android:textSize="20sp" />
+        android:textSize="20sp"
+        android:textStyle="bold" />
 </RelativeLayout>

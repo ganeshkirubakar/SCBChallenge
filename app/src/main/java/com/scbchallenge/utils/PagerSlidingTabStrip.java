@@ -57,7 +57,7 @@ public class PagerSlidingTabStrip extends HorizontalScrollView {
     private int dividerPadding = 12;
     private int tabPadding = 24;
     private int tabTextColor = 0xFF666666;
-    private int tabTextSize = 22;
+    private int tabTextSize = 18;
     private int getCurrentPosition = -1;
     private int gravity = Gravity.CENTER;
     private Typeface tabTypeface = null;
@@ -231,7 +231,7 @@ public class PagerSlidingTabStrip extends HorizontalScrollView {
                 tab.setTextSize(TypedValue.COMPLEX_UNIT_PX, tabTextSize);
 
                 if (getCurrentPosition == i) {
-                    tab.setTextColor(getResources().getColor(R.color.black));
+                    tab.setTextColor(getResources().getColor(R.color.white));
                 } else {
                     tab.setTextColor(getResources().getColor(R.color.grey));
                 }

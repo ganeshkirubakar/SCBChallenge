@@ -44,8 +44,8 @@ public class MobileDetailFragment extends Fragment implements View.OnClickListen
         View detailView = inflater.inflate(R.layout.mobile_detail_view, container, false);
         mobileName = (TextView) detailView.findViewById(R.id.mobile_name);
         mobileDescription = (TextView) detailView.findViewById(R.id.mobile_description);
-        priceValue = (TextView) detailView.findViewById(R.id.price_value);
-        ratingValue = (TextView) detailView.findViewById(R.id.rating_value);
+        priceValue = (TextView) detailView.findViewById(R.id.price_label);
+        ratingValue = (TextView) detailView.findViewById(R.id.rating_label);
         mProgressBar = (ProgressBar) detailView.findViewById(R.id.progress);
         mobileImageLayout = (LinearLayout) detailView.findViewById(R.id.image_dynamic);
         mobileDetailPresenter = new MobileDetailPresenterImpl(this, new MobileDetailInteractorImpl());
@@ -60,8 +60,8 @@ public class MobileDetailFragment extends Fragment implements View.OnClickListen
         if (getArguments() != null) {
             mobileName.setText(getArguments().getString(AppConstants.MOBILE_NAME));
             mobileDescription.setText(getArguments().getString(AppConstants.MOBILE_DESCRIPTION));
-            priceValue.setText(getArguments().getString(AppConstants.PRICE_VALUE));
-            ratingValue.setText(getArguments().getString(AppConstants.RATING_VALUE));
+            priceValue.setText(String.format(getString(R.string.price), getArguments().getString(AppConstants.PRICE_VALUE)));
+            ratingValue.setText(String.format(getString(R.string.rating), getArguments().getString(AppConstants.RATING_VALUE)));
             mobileDetailPresenter.onResume(getArguments().getString(AppConstants.IMAGE_URL));
         }
     }
@@ -98,11 +98,13 @@ public class MobileDetailFragment extends Fragment implements View.OnClickListen
     @Override
     public void setItems(List<MobileDetail> detailItems) {
         for (MobileDetail mobileImage : detailItems) {
-            ImageView img = new ImageView(getContext());
-            img.setVisibility(View.VISIBLE);
-            img.setTag(mobileImage.getId());
-            mobileImageLayout.addView(img);
-            Picasso.with(getContext()).load(mobileImage.getUrl()).into(img);
+            if (getContext() != null) {
+                ImageView img = new ImageView(getContext());
+                img.setVisibility(View.VISIBLE);
+                img.setTag(mobileImage.getId());
+                mobileImageLayout.addView(img);
+                Picasso.with(getContext()).load(mobileImage.getUrl()).into(img);
+            }
         }
     }
 
